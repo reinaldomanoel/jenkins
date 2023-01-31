@@ -21,7 +21,7 @@ pipeline {
         
         stage('Portão HTTP Não Seguro') {
             steps{
-               def lifetimeBaseUrl = valueConfigOutSystems('activationCode',"${params.EnviromentInfra}")
+               def activationCode = valueConfigOutSystems('activationCode',"${params.EnviromentInfra}")
                echo "Pipeline activationCode baseUrl: ${params.EnviromentInfra}" 
             }
         }
