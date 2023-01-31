@@ -10,7 +10,7 @@ pipeline {
             steps {
                script {
                     def data = readYaml(file: 'pipeline.yml')
-                    def lifetime-baseUrl = pipeline.lifetime."baseUrl-${params.EnviromentInfra}"
+                    def lifetime-baseUrl = pipeline.lifetime.['baseUrl-${params.EnviromentInfra}']
                     echo "Pipeline lifetime baseUrl: ${lifetime-baseUrl}" 
                 }
                 
