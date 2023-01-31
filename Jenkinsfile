@@ -76,7 +76,9 @@ pipeline {
 
     post {
         always {
-            manager.addShortText("OutSystems Infra: ${params.TriggeredBy}")
+            script {
+                manager.addShortText("OutSystems Infra: ${params.TriggeredBy}")
+            }
         }
     }
 }
