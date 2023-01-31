@@ -54,7 +54,7 @@ pipeline {
         stage('Deploy HMG') {
             when {
                 expression { 
-                    params.TriggeredBy == 'infra' 
+                    return params.TriggeredBy == 'infra' 
                 }
             }
             steps{
