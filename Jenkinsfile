@@ -9,9 +9,9 @@ pipeline {
         stage('Prepare') {
             steps {
                script {
-                    def data = readYaml(file: 'pipeline.yml')
+                    def pipeline = readYaml(file: 'pipeline.yml')
                     def baseUrl = "baseUrl-${params.EnviromentInfra}"
-                    def lifetimeBaseUrl = pipeline['outsystems']['lifetime']
+                    def lifetimeBaseUrl = pipeline['outsystems']['lifetime'][baseUrl]
                     echo "Pipeline lifetime baseUrl: ${lifetimeBaseUrl}" 
                 }
                 
