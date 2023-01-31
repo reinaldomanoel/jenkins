@@ -7,9 +7,9 @@ def valueConfigOutSystems(nodeParent, nodeChild){
 pipeline {
     agent any
     
-    parameters {
-        string(name: 'TriggeredBy', defaultValue: 'infra', description: 'Name of LifeTime user that triggered the pipeline remotely.')
-    }
+    // parameters {
+    //     string(name: 'TriggeredBy', defaultValue: 'infra', description: 'Name of LifeTime user that triggered the pipeline remotely.')
+    // }
 
     environment {
         FLUXO_OUTSYSTEM = params.TriggeredBy.trim().toLowerCase()
