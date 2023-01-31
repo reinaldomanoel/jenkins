@@ -11,7 +11,7 @@ pipeline {
 
                 def pipeline = readYaml file: 'pipeline.yaml'                
 
-                def baseUrl = "baseUrl-${EnviromentInfra}"
+                def baseUrl = "baseUrl-${params.EnviromentInfra}"
                 def lifetime-baseUrl = pipeline.lifetime."$baseUrl"
                  
 
