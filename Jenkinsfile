@@ -1,5 +1,7 @@
-node {
-  pipeline = readYaml file: 'pipeline.yml'
+
+def loadValuesYaml(){
+  def valuesYaml = readYaml (file: 'pipeline.yaml')
+  return valuesYaml;
 }
 
 pipeline {
@@ -12,10 +14,10 @@ pipeline {
     stages {
         stage('Prepare') {
             steps {
-               
-                echo "configVal: " + pipeline
-
-               
+               script{
+                    valuesYaml = loadValuesYaml()
+                    println valuesYaml.getClass()
+                }
                 
             }
         }
