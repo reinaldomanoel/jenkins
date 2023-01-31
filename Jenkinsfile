@@ -1,9 +1,3 @@
-
-def loadValuesYaml(){
-  def valuesYaml = readYaml (file: 'pipeline.yaml')
-  return valuesYaml;
-}
-
 pipeline {
     agent any
     
@@ -15,8 +9,8 @@ pipeline {
         stage('Prepare') {
             steps {
                script{
-                    valuesYaml = loadValuesYaml()
-                    println valuesYaml.getClass()
+                    def valuesYaml = readYaml (file: './pipeline.yml')
+                    println valuesYaml
                 }
                 
             }
