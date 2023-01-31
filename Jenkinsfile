@@ -14,15 +14,20 @@ pipeline {
     stages {
         stage('Prepare') {
             steps {
-              def lifetimeBaseUrl = valueConfigOutSystems('lifetime',"baseUrl-${params.EnviromentInfra}")
-              echo "Pipeline lifetime baseUrl-${params.EnviromentInfra}: ${lifetimeBaseUrl}" 
+                script {
+                    def lifetimeBaseUrl = valueConfigOutSystems('lifetime',"baseUrl-${params.EnviromentInfra}")
+                    echo "Pipeline lifetime baseUrl-${params.EnviromentInfra}: ${lifetimeBaseUrl}" 
+                }
+              
             }
         }
         
         stage('Portão HTTP Não Seguro') {
             steps{
-               def activationCode = valueConfigOutSystems('activationCode',"${params.EnviromentInfra}")
-               echo "Pipeline activationCode baseUrl: ${params.EnviromentInfra}" 
+                script {
+                    def activationCode = valueConfigOutSystems('activationCode',"${params.EnviromentInfra}")
+                    echo "Pipeline activationCode baseUrl: ${params.EnviromentInfra}" 
+                }
             }
         }
         
