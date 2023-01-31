@@ -8,7 +8,7 @@ pipeline {
     agent any
     
     parameters {
-              choice(name: 'TriggeredBy', choices: ['Infra', 'CoE', 'Corp'], description: 'Fluxo OutSystems')
+        choice(name: 'TriggeredBy', choices: ['Infra', 'CoE', 'Corp'], description: 'Fluxo OutSystems')
     }
 
     environment {
