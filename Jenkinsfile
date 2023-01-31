@@ -11,8 +11,8 @@ pipeline {
 
                 def pipeline = readYaml file: 'pipeline.yaml'                
 
-
-                def lifetime-baseUrl = pipeline.lifetime."baseUrl-"+$EnviromentInfra
+                def baseUrl = "baseUrl-${EnviromentInfra}"
+                def lifetime-baseUrl = pipeline.lifetime."$baseUrl"
                  
 
                echo "Pipeline lifetime baseUrl: ${lifetime-baseUrl}" 
