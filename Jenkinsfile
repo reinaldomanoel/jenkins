@@ -26,7 +26,7 @@ pipeline {
             steps{
                 script {
                     def activationCode = valueConfigOutSystems('activationCode',"${params.EnviromentInfra}")
-                    echo "Pipeline activationCode baseUrl: ${params.EnviromentInfra}" 
+                    echo "Pipeline activationCode: ${activationCode}" 
                 }
             }
         }
