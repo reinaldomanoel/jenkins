@@ -55,13 +55,11 @@ pipeline {
         
         stage('Deploy HMG') {
             
-            when(params.TriggeredBy == 'infra') {
+            if(params.TriggeredBy != 'infra') {
                 echo 'Somente OutSystems Infra'
-            }
-
-            steps{
+            }else{
                 echo('Fim HMG')
-            }    
+            }
         }
         
         stage('Deploy PPRD') {
