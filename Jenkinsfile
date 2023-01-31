@@ -52,8 +52,8 @@ pipeline {
         
         
         stage('Deploy HMG') {
-            when (params.TriggeredBy != 'infra' ) {
-                echo 'Deploy somente para o ambiente Infra'
+            when {
+                expression { return params.TriggeredBy == 'infra' }
             }
             steps{
                 echo('Fim HMG')
