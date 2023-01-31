@@ -14,18 +14,15 @@ pipeline {
     stages {
         stage('Prepare') {
             steps {
-               script {
-                    def pipeline = readYaml(file: 'pipeline.yml')
-                    def lifetimeBaseUrl = valueConfigOutSystems('lifetime',"baseUrl-${params.EnviromentInfra}")
-                    echo "Pipeline lifetime baseUrl: ${lifetimeBaseUrl}" 
-                }
-                
+              def lifetimeBaseUrl = valueConfigOutSystems('lifetime',"baseUrl-${params.EnviromentInfra}")
+              echo "Pipeline lifetime baseUrl-${params.EnviromentInfra}: ${lifetimeBaseUrl}" 
             }
         }
         
         stage('Portão HTTP Não Seguro') {
             steps{
-                echo('Fim Portão HTTP Não Seguro')
+               def lifetimeBaseUrl = valueConfigOutSystems('activationCode',"${params.EnviromentInfra}")
+               echo "Pipeline activationCode baseUrl: ${params.EnviromentInfra}" 
             }
         }
         
