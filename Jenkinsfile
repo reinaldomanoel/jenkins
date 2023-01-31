@@ -8,16 +8,14 @@ pipeline {
     stages {
         stage('Prepare') {
             steps {
-                script{
-                    def pipeline = readYaml file: 'pipeline.yaml'     
+                def pipeline = readYaml file: 'pipeline.yml'     
 
-                    def lifetime = "lifetime"
-                    def baseUrl  = "baseUrl-${params.EnviromentInfra}"
-                    def lifetime-baseUrl = pipeline."$lifetime"."$baseUrl"
-                        
+                def lifetime = "lifetime"
+                def baseUrl  = "baseUrl-${params.EnviromentInfra}"
+                def lifetime-baseUrl = pipeline."$lifetime"."$baseUrl"
+                    
 
-                    echo "Pipeline lifetime baseUrl: ${lifetime-baseUrl}" 
-                }
+                echo "Pipeline lifetime baseUrl: ${lifetime-baseUrl}" 
                 
             }
         }
