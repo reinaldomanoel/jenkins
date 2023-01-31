@@ -2,16 +2,20 @@ pipeline {
     agent any
     
     parameters {
-        // Pipeline parameters are automatically filled by LT Trigger plugin
-        string(name: 'ApplicationScope', defaultValue: '', description: 'Comma-separated list of LifeTime applications to deploy.')
-        string(name: 'ApplicationScopeWithTests', defaultValue: '', description: 'Comma-separated list of LifeTime applications to deploy (including test applications)')
-        string(name: 'TriggeredBy', defaultValue: 'N/A', description: 'Name of LifeTime user that triggered the pipeline remotely.')
+        string(name: 'EnviromentInfra', defaultValue: 'coe', description: 'Name of LifeTime user that triggered the pipeline remotely.')
     }
 
     stages {
         stage('Prepare') {
             steps {
-               echo "Pipeline run triggered remotely by '${params.TriggeredBy}' for the following applications (including tests): '${params.ApplicationScopeWithTests}'"
+
+                def pipeline = readYaml file: 'pipeline.yaml'                
+
+
+                def lifetime-baseUrl = pipeline.lifetime."baseUrl-"+$EnviromentInfra
+                 
+
+               echo "Pipeline lifetime baseUrl: ${lifetime-baseUrl}" 
             }
         }
         

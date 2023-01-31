@@ -26,8 +26,9 @@ outsystems:
         bdd_framwork:
             
     lifetime:
-        baseUrl: petrobras-lt.outsystemsenterprise.com
-        
+        baseUrl-infra: infra.petrobras-lt.outsystemsenterprise.com
+        baseUrl-coe: coe.petrobras-lt.outsystemsenterprise.com
+        baseUrl-corp: corp.petrobras-lt.outsystemsenterprise.com
     services:
         oauth2Token: /OAuth2_TokenProvider/rest/oauth/token
         properties: /OutSystemsProperties_API/rest/SiteProperties_V1
