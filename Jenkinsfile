@@ -11,13 +11,19 @@ pipeline {
         string(name: 'TriggeredBy', defaultValue: 'infra', description: 'Name of LifeTime user that triggered the pipeline remotely.')
     }
 
+    environment {
+        FLUXO_OUTSYSTEM = params.TriggeredBy.trim().toLowerCase()
+    }
+
     stages {
         stage('Prepare') {
             steps {
+                deleteDir()
+
                 script {
 
-                    def lifetimeBaseUrl = valueConfigOutSystems('lifetime',"baseUrl-${params.TriggeredBy}")
-                    echo "Pipeline lifetime baseUrl-${params.TriggeredBy}: ${lifetimeBaseUrl}" 
+                    def lifetimeBaseUrl = valueConfigOutSystems('lifetime',"baseUrl-${FLUXO_OUTSYSTEM}")
+                    echo "Pipeline lifetime baseUrl-${FLUXO_OUTSYSTEM}: ${lifetimeBaseUrl}" 
                 }
               
             }
@@ -26,7 +32,7 @@ pipeline {
         stage('Portão HTTP Não Seguro') {
             steps{
                 script {
-                    def activationCode = valueConfigOutSystems('activationCode',"${params.TriggeredBy}")
+                    def activationCode = valueConfigOutSystems('activationCode',"${FLUXO_OUTSYSTEM}")
                     echo "Pipeline activationCode: ${activationCode}" 
                 }
             }
@@ -54,7 +60,7 @@ pipeline {
         stage('Deploy HMG') {
             when {
                 expression { 
-                    return params.TriggeredBy.trim() == 'infra' 
+                    return FLUXO_OUTSYSTEM == 'infra' 
                 }
             }
             steps{
@@ -82,6 +88,8 @@ pipeline {
                 def log = "Fluxo OutSystems: ${params.TriggeredBy}"
                 manager.addShortText(log, "grey", "white", "0px", "white")
             }
+
+            deleteDir()
         }
     }
 }
