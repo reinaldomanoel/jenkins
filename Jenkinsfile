@@ -10,7 +10,7 @@ pipeline {
             steps {
                script {
                     def valuesYaml = readYaml (file: './pipeline.yml')
-                    println valuesYaml
+                    echo valuesYaml
                 }
                 
             }
