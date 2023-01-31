@@ -1,0 +1,80 @@
+#Levels: Low Medium-Low Medium Medium-High High
+outsystems:
+    activationCode: VKA.NR9.XXG.EMV.7RN.WNZ.CQA.GOU
+        #infra: VKA.NR9.XXG.EMV.7RN.WNZ.CQA.GOU
+        #coe: 
+        #corp:
+    gateways:
+        architectureDashboard:
+            before: TST
+            security:
+                level: 
+                    - low
+                quantity: 500
+            performance:
+                level:
+                    - low
+                quantity: 500
+            maintainability:
+                level:
+                    - low
+                quantity: 500
+            architecture:
+                level:
+                    - low
+                quantity: 500
+        bdd_framwork:
+            
+    lifetime:
+        baseUrl: petrobras-lt.outsystemsenterprise.com
+        
+    services:
+        oauth2Token: /OAuth2_TokenProvider/rest/oauth/token
+        properties: /OutSystemsProperties_API/rest/SiteProperties_V1
+        methodNameSet: /Module_SetSharedSitePropertyValue
+        methodNameGet: /Module_GetSharedSiteProperty
+
+        outsystems:
+            oauth2Token: /OAuth2_TokenProvider/rest/oauth/token
+            siteProperties:
+                baseUrl: /OutSystemsProperties_API/rest/SiteProperties_V1
+                methodNameSet: /Module_SetSharedSitePropertyValue
+                methodNameGet: /Module_GetSharedSiteProperty
+            consumedIntegrations:
+                baseUrl: /OutSystemsProperties_API/rest/Services_V1
+                methodNameSetRESTCredential: /Module_SetRESTReferenceEffectiveCredential
+                methodNameSetRESTURL: /Module_SetRESTReferenceEffectiveURL
+                methodNameSetSOAPCredential: /Module_SetSOAPReferenceEffectiveCredentials
+                methodNameSetSOAPURL: /Module_SetSOAPReferenceEffectiveURL
+            timers:
+                baseUrl: /OutSystemsProperties_API/rest/Timers_V1
+                methodNameSet: /SetTimersSchedule
+                methodNameGet: /ListTimer
+                RunTimer: /RunTimer
+                DesactiveTimer: /DesactiveTimer
+        
+    envs:
+        DSV:
+            baseUrl: https://petrobras-dsv.outsystemsenterprise.com
+            cofre: SAFE_EQUIPE_OUTSYSTEMS_DSV
+        TST:
+            baseUrl: https://petrobras-tst.outsystemsenterprise.com
+            cofre: SAFE_EQUIPE_OUTSYSTEMS_TST
+            activeDenyList: false
+        HMG:
+            baseUrl: https://petrobras-hmg.outsystemsenterprise.com
+            cofre: SAFE_EQUIPE_OUTSYSTEMS_HMG
+            activeDenyList: false
+        PPRD:
+            baseUrl: https://petrobras-pprd.outsystemsenterprise.com
+            cofre: SAFE_EQUIPE_OUTSYSTEMS_HMG
+            activeDenyList: false
+        PRD:
+            baseUrl: https://petrobras.outsystemsenterprise.com
+            cofre: SAFE_EQUIPE_OUTSYSTEMS
+            activeDenyList: false
+    denyList:
+        applications:
+            names: BDDFramework
+            prefixes: XXXX
+            suffixes: Pipeline
