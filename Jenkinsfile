@@ -11,7 +11,7 @@ pipeline {
                script {
                     def data = readYaml(file: 'pipeline.yml')
                     def baseUrl = "baseUrl-${params.EnviromentInfra}"
-                    def lifetimeBaseUrl = pipeline['outsystems']['lifetime'][baseUrl]
+                    def lifetimeBaseUrl = pipeline['outsystems']['lifetime']
                     echo "Pipeline lifetime baseUrl: ${lifetimeBaseUrl}" 
                 }
                 
