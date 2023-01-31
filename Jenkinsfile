@@ -1,5 +1,3 @@
-import org.jenkinsci.plugins.pipeline.modeldefinition.Utils
-
 def valueConfigOutSystems(nodeParent, nodeChild){
   def valuesYaml = readYaml (file: 'pipeline.yml')
   return valuesYaml['outsystems'][nodeParent][nodeChild];
@@ -54,12 +52,14 @@ pipeline {
         
         
         stage('Deploy HMG') {
-            
-            if(params.TriggeredBy != 'infra') {
-                echo 'Somente OutSystems Infra'
-            }else{
-                echo('Fim HMG')
+            when {
+                expression { 
+                    params.TriggeredBy == 'infra' 
+                }
             }
+            steps{
+                echo('Fim HMG')
+            }    
         }
         
         stage('Deploy PPRD') {
