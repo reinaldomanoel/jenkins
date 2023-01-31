@@ -9,8 +9,8 @@ pipeline {
         stage('Prepare') {
             steps {
                script {
-                    def valuesYaml = readYaml (file: './pipeline.yml')
-                    echo valuesYaml
+                    def data = readFile(file: 'pipeline.yml')
+                    println(data)
                 }
                 
             }
