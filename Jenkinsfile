@@ -16,9 +16,6 @@ pipeline {
             steps {
                 script {
 
-                    def summary1 = createSummary(icon:"notepad.png", text:"OutSystems Infra: ${params.TriggeredBy}<br>")
-                    summary1.appendText("myBuild1: SUCCESS<br>", false)
-
                     def lifetimeBaseUrl = valueConfigOutSystems('lifetime',"baseUrl-${params.TriggeredBy}")
                     echo "Pipeline lifetime baseUrl-${params.TriggeredBy}: ${lifetimeBaseUrl}" 
                 }
@@ -74,6 +71,12 @@ pipeline {
             steps{
                 echo('Fim PRD')
             }    
+        }
+    }
+
+    post {
+        always {
+            manager.addShortText("OutSystems Infra: ${params.TriggeredBy}")
         }
     }
 }
