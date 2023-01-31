@@ -8,15 +8,19 @@ pipeline {
     agent any
     
     parameters {
-        string(name: 'EnviromentInfra', defaultValue: 'infra', description: 'Name of LifeTime user that triggered the pipeline remotely.')
+        string(name: 'TriggeredBy', defaultValue: 'infra', description: 'Name of LifeTime user that triggered the pipeline remotely.')
     }
 
     stages {
         stage('Prepare') {
             steps {
                 script {
-                    def lifetimeBaseUrl = valueConfigOutSystems('lifetime',"baseUrl-${params.EnviromentInfra}")
-                    echo "Pipeline lifetime baseUrl-${params.EnviromentInfra}: ${lifetimeBaseUrl}" 
+
+                    def summary1 = createSummary(icon:"notepad.png", text:"OutSystems Infra: ${params.TriggeredBy}<br>")
+
+
+                    def lifetimeBaseUrl = valueConfigOutSystems('lifetime',"baseUrl-${params.TriggeredBy}")
+                    echo "Pipeline lifetime baseUrl-${params.TriggeredBy}: ${lifetimeBaseUrl}" 
                 }
               
             }
@@ -25,7 +29,7 @@ pipeline {
         stage('Portão HTTP Não Seguro') {
             steps{
                 script {
-                    def activationCode = valueConfigOutSystems('activationCode',"${params.EnviromentInfra}")
+                    def activationCode = valueConfigOutSystems('activationCode',"${params.TriggeredBy}")
                     echo "Pipeline activationCode: ${activationCode}" 
                 }
             }
@@ -52,7 +56,7 @@ pipeline {
         
         stage('Deploy HMG') {
             when {
-                expression { params.EnviromentInfra == 'infra' }
+                expression { params.TriggeredBy == 'infra' }
             }
             steps{
                 echo('Fim HMG')
