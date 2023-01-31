@@ -77,7 +77,7 @@ pipeline {
     post {
         always {
             script {
-                addInfoBadge(text: "OutSystems Infra: ${params.TriggeredBy}")
+                addShortText(text: "OutSystems Infra: ${params.TriggeredBy}")
             }
         }
     }
