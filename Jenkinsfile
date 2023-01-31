@@ -39,33 +39,36 @@ pipeline {
         
         stage('Portão Architecture Dashboard Checkpoint') {
             steps{
-                echo('Fim DSV')
+                echo('Fim Portão Architecture Dashboard Checkpoint')
             }    
         }
         
         stage('TST') {
             steps{
-                echo('Fim DSV')
+                echo('Fim TST')
             }    
         }
         
         
         stage('Deploy HMG') {
+            when {
+                expression { params.EnviromentInfra == 'infra' }
+            }
             steps{
-                echo('Fim DSV')
+                echo('Fim HMG')
             }    
         }
         
         stage('Deploy PPRD') {
             steps{
-                echo('Fim DSV')
+                echo('Fim PPRD')
             }    
         }
         
         
         stage('Deploy PRD') {
             steps{
-                echo('Fim DSV')
+                echo('Fim PRD')
             }    
         }
     }
