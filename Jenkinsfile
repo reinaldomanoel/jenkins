@@ -1,3 +1,7 @@
+node {
+  pipeline = readYaml file: 'pipeline.yml'
+}
+
 pipeline {
     agent any
     
@@ -8,8 +12,7 @@ pipeline {
     stages {
         stage('Prepare') {
             steps {
-                def pipeline = readYaml file: 'pipeline.yml'     
-
+               
                 echo "configVal: " + pipeline
 
                
