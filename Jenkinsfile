@@ -17,7 +17,7 @@ pipeline {
                 script {
 
                     def summary1 = createSummary(icon:"notepad.png", text:"OutSystems Infra: ${params.TriggeredBy}<br>")
-
+                    summary1.appendText("myBuild1: SUCCESS<br>", false)
 
                     def lifetimeBaseUrl = valueConfigOutSystems('lifetime',"baseUrl-${params.TriggeredBy}")
                     echo "Pipeline lifetime baseUrl-${params.TriggeredBy}: ${lifetimeBaseUrl}" 
