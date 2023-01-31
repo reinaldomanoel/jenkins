@@ -1,3 +1,9 @@
+def valueConfigOutSystems(nodeParent, nodeChild){
+  def valuesYaml = readYaml (file: 'pipeline.yml')
+  return valuesYaml['outsystems'][nodeParent][nodeChild];
+}
+
+
 pipeline {
     agent any
     
@@ -10,8 +16,7 @@ pipeline {
             steps {
                script {
                     def pipeline = readYaml(file: 'pipeline.yml')
-                    def baseUrl = "baseUrl-${params.EnviromentInfra}"
-                    def lifetimeBaseUrl = pipeline['outsystems']['lifetime'][baseUrl]
+                    def lifetimeBaseUrl = valueConfigOutSystems('lifetime',"baseUrl-${params.EnviromentInfra}")
                     echo "Pipeline lifetime baseUrl: ${lifetimeBaseUrl}" 
                 }
                 
