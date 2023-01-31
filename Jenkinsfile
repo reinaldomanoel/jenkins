@@ -18,8 +18,6 @@ pipeline {
     stages {
         stage('Prepare') {
             steps {
-                deleteDir()
-
                 script {
 
                     def lifetimeBaseUrl = valueConfigOutSystems('lifetime',"baseUrl-${FLUXO_OUTSYSTEM}")
