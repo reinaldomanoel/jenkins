@@ -79,7 +79,7 @@ pipeline {
     post {
         always {
             script {
-                def log = "OutSystems Infra: ${params.TriggeredBy}"
+                def log = "Fluxo OutSystems: ${params.TriggeredBy}"
                 manager.addShortText(log, "grey", "white", "0px", "white")
             }
         }
