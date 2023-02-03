@@ -8,8 +8,8 @@ def cofre        = []
 
 
 def setConfigOutSystems(fluxoOutsystems){
-   // activationCode = globalConfig.outsystems.activationCode."${fluxoOutsystems}"
-   // lifetime = globalConfig.outsystems.lifetime.baseUrl."${fluxoOutsystems}"
+   activationCode = globalConfig.outsystems.activationCode."${fluxoOutsystems}"
+   lifetime = globalConfig.outsystems.lifetime.baseUrl."${fluxoOutsystems}"
 }
 
 def setEnviromentConfigOutSystems(ambienteDeploy, fluxoOutsystems){
@@ -33,8 +33,7 @@ pipeline {
             steps {
                 script {
                     globalConfig = readYaml (file: './pipeline.yml')
-                    echo globalConfig.outsystems.envs.DSV.baseUrl
-                    //setConfigOutSystems(FLUXO_OUTSYSTEMS)
+                    setConfigOutSystems(FLUXO_OUTSYSTEMS)
                     echo "Pipeline lifetime baseUrl-${FLUXO_OUTSYSTEMS}: ${lifetime}" 
                 }
               
