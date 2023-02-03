@@ -14,7 +14,7 @@ def setConfigOutSystems(fluxoOutsystems){
 }
 
 def setEnviromentConfigOutSystems(ambienteDeploy, fluxoOutsystems){
-    globalConfig.outsystems.envs."${ambienteDeploy}".baseUrl  = globalConfig.outsystems.envs."${ambienteDeploy}".baseUrl.replaceAll('${INFRA}',fluxoOutsystems)
+    globalConfig.outsystems.envs."${ambienteDeploy}".baseUrl  = globalConfig.outsystems.envs."${ambienteDeploy}".baseUrl.replaceAll('{INFRA}',fluxoOutsystems)
 }
 
 
