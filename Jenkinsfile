@@ -5,7 +5,9 @@ def lifetime
 
 def setConfigOutSystems(fluxoOutsystems, globalConfig){
    activationCode = globalConfig.outsystems.activationCode."${fluxoOutsystems}"
+   echo activationCode
    lifetime = globalConfig.outsystems.lifetime.baseUrl."${fluxoOutsystems}"
+   echo lifetime
 }
 
 def setEnviromentConfigOutSystems(ambienteDeploy, fluxoOutsystems, globalConfig){
