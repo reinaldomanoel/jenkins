@@ -29,7 +29,7 @@ pipeline {
             steps {
                 script {
                     globalConfig = readYaml (file: './pipeline.yml')
-                    echo globalConfig
+                    println(globalConfig)
                     echo FLUXO_OUTSYSTEMS
                     setConfigOutSystems(FLUXO_OUTSYSTEMS, globalConfig)
                     echo "Pipeline lifetime baseUrl-${FLUXO_OUTSYSTEMS}: ${lifetime}" 
