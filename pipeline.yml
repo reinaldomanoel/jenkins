@@ -26,9 +26,10 @@ outsystems:
         bdd_framwork:
             
     lifetime:
-        baseUrl-infra: infra.petrobras-lt.outsystemsenterprise.com
-        baseUrl-coe: coe.petrobras-lt.outsystemsenterprise.com
-        baseUrl-corp: corp.petrobras-lt.outsystemsenterprise.com
+        baseUrl:
+            infra: infra.petrobras-lt.outsystemsenterprise.com
+            coe: coe.petrobras-lt.outsystemsenterprise.com
+            corp: corp.petrobras-lt.outsystemsenterprise.com
     services:
         oauth2Token: /OAuth2_TokenProvider/rest/oauth/token
         properties: /OutSystemsProperties_API/rest/SiteProperties_V1
@@ -56,22 +57,22 @@ outsystems:
         
     envs:
         DSV:
-            baseUrl: https://petrobras-dsv.outsystemsenterprise.com
+            baseUrl: https://petrobras-${INFRA}-dsv.outsystemsenterprise.com
             cofre: SAFE_EQUIPE_OUTSYSTEMS_DSV
         TST:
-            baseUrl: https://petrobras-tst.outsystemsenterprise.com
+            baseUrl: https://petrobras-${INFRA}-tst.outsystemsenterprise.com
             cofre: SAFE_EQUIPE_OUTSYSTEMS_TST
             activeDenyList: false
         HMG:
-            baseUrl: https://petrobras-hmg.outsystemsenterprise.com
+            baseUrl: https://petrobras-${INFRA}-hmg.outsystemsenterprise.com
             cofre: SAFE_EQUIPE_OUTSYSTEMS_HMG
             activeDenyList: false
         PPRD:
-            baseUrl: https://petrobras-pprd.outsystemsenterprise.com
+            baseUrl: https://petrobras-${INFRA}-pprd.outsystemsenterprise.com
             cofre: SAFE_EQUIPE_OUTSYSTEMS_HMG
             activeDenyList: false
         PRD:
-            baseUrl: https://petrobras.outsystemsenterprise.com
+            baseUrl: https://petrobras-${INFRA}.outsystemsenterprise.com
             cofre: SAFE_EQUIPE_OUTSYSTEMS
             activeDenyList: false
     denyList:
