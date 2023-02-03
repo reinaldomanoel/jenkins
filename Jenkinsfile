@@ -25,8 +25,8 @@ pipeline {
                 script {
                     globalConfig = readYaml (file: './pipeline.yml')
                     
-                    activationCode = globalConfig.outsystems.activationCode."${fluxoOutsystems}"
-                    lifetime = globalConfig.outsystems.lifetime.baseUrl."${fluxoOutsystems}"
+                    activationCode = globalConfig.outsystems.activationCode."${FLUXO_OUTSYSTEMS}"
+                    lifetime = globalConfig.outsystems.lifetime.baseUrl."${FLUXO_OUTSYSTEMS}"
                     
                     echo "Pipeline lifetime baseUrl-${FLUXO_OUTSYSTEMS}: ${lifetime}" 
                 }
