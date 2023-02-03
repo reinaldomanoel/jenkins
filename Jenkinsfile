@@ -1,6 +1,6 @@
 import org.jenkinsci.plugins.pipeline.modeldefinition.Utils
 
-def globalConfig = { }
+def globalConfig
 def activationCode
 def lifetime
 
