@@ -1,5 +1,3 @@
-import org.jenkinsci.plugins.pipeline.modeldefinition.Utils
-
 def globalConfig
 def activationCode
 def lifetime
@@ -10,12 +8,12 @@ def cofre        = []
 
 
 def setConfigOutSystems(fluxoOutsystems){
-    activationCode = globalConfig.outsystems.activationCode."${fluxoOutsystems}"
-    lifetime = globalConfig.outsystems.lifetime.baseUrl."${fluxoOutsystems}"
+   // activationCode = globalConfig.outsystems.activationCode."${fluxoOutsystems}"
+   // lifetime = globalConfig.outsystems.lifetime.baseUrl."${fluxoOutsystems}"
 }
 
 def setEnviromentConfigOutSystems(ambienteDeploy, fluxoOutsystems){
-    globalConfig.outsystems.envs."${ambienteDeploy}".baseUrl  = globalConfig.outsystems.envs."${ambienteDeploy}".baseUrl.replaceAll('INFRA',fluxoOutsystems)
+   // globalConfig.outsystems.envs."${ambienteDeploy}".baseUrl  = globalConfig.outsystems.envs."${ambienteDeploy}".baseUrl.replaceAll('INFRA',fluxoOutsystems)
 }
 
 
