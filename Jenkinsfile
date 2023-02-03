@@ -7,8 +7,6 @@ def cofre        = []
 
 
 def setConfigOutSystems(fluxoOutsystems){
-    globalConfig = readYaml (file: 'pipeline.yml')
-
     activationCode = globalConfig.outsystems.activationCode."${fluxoOutsystems}"
     lifetime = globalConfig.outsystems.lifetime.baseUrl."${fluxoOutsystems}"
 }
@@ -33,6 +31,8 @@ pipeline {
         stage('Prepare') {
             steps {
                 script {
+                    globalConfig = readYaml (file: 'pipeline.yml')
+                    echo globalConfig
                     setConfigOutSystems(FLUXO_OUTSYSTEMS)
                     echo "Pipeline lifetime baseUrl-${FLUXO_OUTSYSTEMS}: ${lifetime}" 
                 }
