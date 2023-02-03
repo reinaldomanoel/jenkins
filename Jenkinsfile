@@ -50,8 +50,8 @@ pipeline {
         
         stage('DSV') {
             steps{
-                //setEnviromentConfigOutSystems('DSV', FLUXO_OUTSYSTEMS)
-                //echo(globalConfig.outsystems.envs.DSV.baseUrl)
+                setEnviromentConfigOutSystems('DSV', FLUXO_OUTSYSTEMS, globalConfig)
+                echo(globalConfig.outsystems.envs.DSV.baseUrl)
                 echo('Fim DSV')
             }    
         }
@@ -64,8 +64,8 @@ pipeline {
         
         stage('TST') {
             steps{
-                //setEnviromentConfigOutSystems('TST', FLUXO_OUTSYSTEMS)
-               // echo(globalConfig.outsystems.envs.TST.baseUrl)
+                setEnviromentConfigOutSystems('TST', FLUXO_OUTSYSTEMS, globalConfig)
+                echo(globalConfig.outsystems.envs.TST.baseUrl)
                 echo('Fim TST')
             }    
         }
@@ -78,7 +78,7 @@ pipeline {
                 }
             }
             steps{
-               // setEnviromentConfigOutSystems('HMG', FLUXO_OUTSYSTEMS)
+                setEnviromentConfigOutSystems('HMG', FLUXO_OUTSYSTEMS, globalConfig)
                // echo(globalConfig.outsystems.envs.HMG.baseUrl)
                 echo('Fim HMG')
             }    
@@ -86,8 +86,8 @@ pipeline {
         
         stage('Deploy PPRD') {
             steps{
-               // setEnviromentConfigOutSystems('PPRD', FLUXO_OUTSYSTEMS)
-              //  echo(globalConfig.outsystems.envs.PPRD.baseUrl)
+                setEnviromentConfigOutSystems('PPRD', FLUXO_OUTSYSTEMS, globalConfig)
+                echo(globalConfig.outsystems.envs.PPRD.baseUrl)
                 echo('Fim PPRD')
             }    
         }
@@ -95,8 +95,8 @@ pipeline {
         
         stage('Deploy PRD') {
             steps{
-               // setEnviromentConfigOutSystems('PRD', FLUXO_OUTSYSTEMS)
-               // echo(globalConfig.outsystems.envs.PRD.baseUrl)
+                setEnviromentConfigOutSystems('PRD', FLUXO_OUTSYSTEMS, globalConfig)
+                echo(globalConfig.outsystems.envs.PRD.baseUrl)
                 echo('Fim PRD')
             }    
         }
