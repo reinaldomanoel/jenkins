@@ -1,6 +1,9 @@
+import org.jenkinsci.plugins.pipeline.modeldefinition.Utils
+
+def globalConfig = { }
 def activationCode
 def lifetime
-def globalConfig = { }
+
 
 def envOutSystem = []
 def cofre        = []
@@ -30,8 +33,10 @@ pipeline {
     stages {
         stage('Prepare') {
             steps {
+                globalConfig = readYaml (file: 'pipeline.yml')
+                
                 script {
-                    globalConfig = readYaml (file: 'pipeline.yml')
+                    
                     echo globalConfig
                     setConfigOutSystems(FLUXO_OUTSYSTEMS)
                     echo "Pipeline lifetime baseUrl-${FLUXO_OUTSYSTEMS}: ${lifetime}" 
