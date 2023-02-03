@@ -32,8 +32,8 @@ pipeline {
         stage('Prepare') {
             steps {
                 script {
-                    global = readYaml (file: './pipeline.yml')
-                    echo global.outsystems.envs.DSV.baseUrl
+                    globalConfig = readYaml (file: './pipeline.yml')
+                    echo globalConfig.outsystems.envs.DSV.baseUrl
                     //setConfigOutSystems(FLUXO_OUTSYSTEMS)
                     echo "Pipeline lifetime baseUrl-${FLUXO_OUTSYSTEMS}: ${lifetime}" 
                 }
