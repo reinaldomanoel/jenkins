@@ -33,7 +33,7 @@ pipeline {
             steps {
                 script {
                     global = readYaml (file: './pipeline.yml')
-                    echo global.outsystems.envs."${ambienteDeploy}".baseUrl
+                    echo global.outsystems.envs.DSV.baseUrl
                     //setConfigOutSystems(FLUXO_OUTSYSTEMS)
                     echo "Pipeline lifetime baseUrl-${FLUXO_OUTSYSTEMS}: ${lifetime}" 
                 }
