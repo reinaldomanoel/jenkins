@@ -57,22 +57,22 @@ outsystems:
         
     envs:
         DSV:
-            baseUrl: https://petrobras-{INFRA}-dsv.outsystemsenterprise.com
+            baseUrl: https://petrobras-INFRA-dsv.outsystemsenterprise.com
             cofre: SAFE_EQUIPE_OUTSYSTEMS_DSV
         TST:
-            baseUrl: https://petrobras-{INFRA}-tst.outsystemsenterprise.com
+            baseUrl: https://petrobras-INFRA-tst.outsystemsenterprise.com
             cofre: SAFE_EQUIPE_OUTSYSTEMS_TST
             activeDenyList: false
         HMG:
-            baseUrl: https://petrobras-{INFRA}-hmg.outsystemsenterprise.com
+            baseUrl: https://petrobras-INFRA-hmg.outsystemsenterprise.com
             cofre: SAFE_EQUIPE_OUTSYSTEMS_HMG
             activeDenyList: false
         PPRD:
-            baseUrl: https://petrobras-{INFRA}-pprd.outsystemsenterprise.com
+            baseUrl: https://petrobras-INFRA-pprd.outsystemsenterprise.com
             cofre: SAFE_EQUIPE_OUTSYSTEMS_HMG
             activeDenyList: false
         PRD:
-            baseUrl: https://petrobras-{INFRA}.outsystemsenterprise.com
+            baseUrl: https://petrobras-INFRA.outsystemsenterprise.com
             cofre: SAFE_EQUIPE_OUTSYSTEMS
             activeDenyList: false
     denyList:
