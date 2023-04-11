@@ -6,13 +6,12 @@ pipeline {
       steps {
         script {
           
-          // Cria um objeto HTTPBuilder
-          def response  = httpRequest 'https://mockbin.com/bin/0b3c3a67-df1d-4448-8159-0210a84b7640'
+
+          def req = new URL("https://mockbin.com/bin/0b3c3a67-df1d-4448-8159-0210a84b7640").openConnection();
+          def content = req.getInputStream().getText()
 
           // Imprime a resposta da API
-          println response.statusLine
-          println response.headers
-          println response.data
+          println content
         }
       }
     }
