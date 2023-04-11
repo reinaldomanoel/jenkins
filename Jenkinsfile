@@ -16,7 +16,7 @@ pipeline {
         script {
            def pwsAirGap = getPasswordFromConan("SENHA_OSPTOOL_API_COE_1Y7R")
 
-           env.TriggerPipelineUser = pwsAirGap
+           env.ConanPwsAirGap = pwsAirGap
 
             try {
                 sh """

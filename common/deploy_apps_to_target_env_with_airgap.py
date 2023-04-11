@@ -10,9 +10,6 @@ if __name__ == "__main__":
                         help="Password of the Username with priveleges to deploy applications on target environment")
     args = parser.parse_args()
 
-    airgap_pass = args.airgap_pass
+    airgap_pass = os.environ.get('ConanPwsAirGap')
     print("Temp Hash main airgap: "+ airgap_pass)
     
-
-    var_value = os.environ.get('TriggerPipelineUser')
-    print(var_value)
