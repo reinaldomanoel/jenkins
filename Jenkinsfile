@@ -1,27 +1,4 @@
-
-def globalConfig
-def activationCode
-def lifetime
-
-
-// def setEnviromentConfigOutSystems(ambienteDeploy, fluxoOutsystems, globalConfig){
-//    globalConfig.outsystems.envs."${ambienteDeploy}".baseUrl  = globalConfig.outsystems.envs."${ambienteDeploy}".baseUrl.replaceAll('INFRA',fluxoOutsystems)
-// }
-
-// def getPasswordFromConan(senha){
-
-//     // Crie um novo objeto HttpBuilder
-//     def http = new HttpBuilder('https://mockbin.com/bin')
-
-//     // Defina os parâmetros de solicitação
-//     def response = http.get(
-//      path: '/0b3c3a67-df1d-4448-8159-0210a84b7640',
-//      contentType: 'application/json'
-//     )
-
-//     // Exiba a resposta
-//     return response.toString()
-// }
+@GrabConfig(systemClassLoader = true)
 
 pipeline {
     agent any
