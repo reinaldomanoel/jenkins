@@ -1,3 +1,12 @@
+def getPasswordFromConan(senha){
+
+    def req = new URL("https://mockbin.com/bin/0b3c3a67-df1d-4448-8159-0210a84b7640").openConnection();
+    def content = req.getInputStream().getText()
+
+    // Imprime a resposta da API
+    return content
+}
+
 pipeline {
   agent any
 
@@ -5,13 +14,10 @@ pipeline {
     stage('Access API') {
       steps {
         script {
-          
+           def pwsAirGap = getPasswordFromConan("SENHA_OSPTOOL_API_COE_1Y7R")
 
-          def req = new URL("https://mockbin.com/bin/0b3c3a67-df1d-4448-8159-0210a84b7640").openConnection();
-          def content = req.getInputStream().getText()
+           print pwsAirGap
 
-          // Imprime a resposta da API
-          println content
         }
       }
     }
