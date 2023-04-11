@@ -19,7 +19,7 @@ pipeline {
            print pwsAirGap
 
             try {
-                withEnv(['VAR_NAME="${pwsAirGap}"']) {
+                withEnv(['VAR_NAME=${pwsAirGap}']) {
                     sh """
 
                     python3 ./common/deploy_apps_to_target_env_with_airgap.py --airgap_pass "${pwsAirGap}"
