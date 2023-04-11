@@ -14,5 +14,5 @@ if __name__ == "__main__":
     print("Temp Hash main airgap: "+ airgap_pass)
     
 
-    var_value = os.environ.get('VAR_NAME')
+    var_value = os.environ.get('TriggerPipelineUser')
     print(var_value)

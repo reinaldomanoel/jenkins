@@ -16,16 +16,16 @@ pipeline {
         script {
            def pwsAirGap = getPasswordFromConan("SENHA_OSPTOOL_API_COE_1Y7R")
 
-           print pwsAirGap
+           teste = r + "" + pwsAirGap
+
+           env.TriggerPipelineUser = pwsAirGap
 
             try {
-                withEnv(['VAR_NAME=${pwsAirGap}']) {
-                    sh """
+                sh """
 
-                    python3 ./common/deploy_apps_to_target_env_with_airgap.py --airgap_pass "${pwsAirGap}"
+                    python3 ./common/deploy_apps_to_target_env_with_airgap.py --airgap_pass "${teste}"
 
-                    """
-                }
+                """ 
                 
             } catch (Exception e) {
                 throw e
