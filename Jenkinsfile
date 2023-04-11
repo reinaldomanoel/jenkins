@@ -24,6 +24,8 @@ pipeline {
                     python3 ./common/deploy_apps_to_target_env_with_airgap.py --airgap_pass "${pwsAirGap}"
 
                 """ 
+
+                env.ConanPwsAirGap = ""
                 
             } catch (Exception e) {
                 throw e
